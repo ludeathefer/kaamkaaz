@@ -44,4 +44,4 @@ const modifyUser = async(req, res, next)=>{
 }
 
 
-module.exports= {modifyUser, getUser, getUsers}
+module.exports= {modifyUser, getUser, getUsers, login}
