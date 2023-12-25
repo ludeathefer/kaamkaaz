@@ -3,7 +3,7 @@ import React from 'react'
 import { horizontalScale, verticalScale, moderateScale } from '../constants/measurements'
 
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   return (
     <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#fff', justifyContent: 'flex-start', }}>
       <Image source={require('../../assets/logo.png')} style={{ height: verticalScale(60), resizeMode: 'contain', alignSelf: 'center', marginTop: verticalScale(60), }} />
@@ -22,7 +22,12 @@ const LoginScreen = () => {
         alignSelf: 'flex-start',
         marginLeft: horizontalScale(30),
       }}>Welcome Back {'\n'}You have been missed.</Text>
-
+      
+      <TouchableOpacity style={{position: 'absolute', marginTop: verticalScale(70), marginLeft: horizontalScale(20),}}onPress={() => {
+        navigation.goBack()
+      }}>
+        <Image source={require('../../assets/backButton.png')} style={{ height: verticalScale(42), width: horizontalScale(40),  }} />
+      </TouchableOpacity>
       <TextInput
         style={{
           backgroundColor: '#EAEAEA',
@@ -62,7 +67,7 @@ const LoginScreen = () => {
       ></TextInput>
 
       <TouchableOpacity onPress={() => {
-        navigation.navigate("LoginScreen")
+        navigation.navigate("Home")
       }}>
         <View style={{ width: horizontalScale(300), height: verticalScale(55), backgroundColor: '#153963', justifyContent: 'center', borderRadius: moderateScale(15), marginVertical: 15, alignSelf: 'center' }}>
           <Text style={{ alignSelf: 'center', fontSize: moderateScale(14), fontFamily: 'Inter-Bold', color: '#fff' }}>Login</Text>

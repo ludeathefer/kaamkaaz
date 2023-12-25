@@ -11,7 +11,7 @@ const register = async (req, res, next) => {
     const { name, email, password, provider } = req.body;
     const alreadyExists =
       (await ServiceProvider.findOne({ email })) ||
-      (await ServiceProvider.findOne({ email }));
+      (await ServiceUser.findOne({ email }));
     if (alreadyExists) {
       next(new BadRequestError("Account with the email already exists"));
     } else {
