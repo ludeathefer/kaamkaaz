@@ -20,6 +20,21 @@ const Styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
   },
+  TitleText_FlatList_MyBookings: {
+    fontSize: moderateScale(18),
+    fontWeight: "500",
+  },
+  Location_FlatList_MyBookings: {
+    fontSize: moderateScale(14),
+  },
+  Price_Flatlist_MyBookings: {
+    fontSize: moderateScale(14),
+  },
+  Rating_FlatList_MyBookings: {
+    height: verticalScale(100),
+    width: horizontalScale(100),
+  },
+  Image_FlatList_MyBookings: {},
 });
 
 export default Styles;
