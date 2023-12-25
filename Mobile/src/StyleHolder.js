@@ -3,7 +3,7 @@ import {
   moderateScale,
   verticalScale,
   horizontalScale,
-} from "./Constants/measurements";
+} from "../src/constants/measurements";
 
 const Styles = StyleSheet.create({
   container_Default: {

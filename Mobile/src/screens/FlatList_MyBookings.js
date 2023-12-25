@@ -1,4 +1,4 @@
-import { FlatList, View } from "react-native";
+import { FlatList, View, Image, Text } from "react-native";
 import Styles from "../StyleHolder";
 
 const FlatList_MyBookings = () => {
@@ -7,62 +7,69 @@ const FlatList_MyBookings = () => {
       key: "1",
       title: "Electrical Socket Repair",
       price: "Rs. 500",
-      image: require("../../assets/Required Images/Placeholder.png"),
-      rating: require("../../assets/Required Images/Rating.png"),
+      image: require("../../assets/RequiredImages/Placeholder.png"),
+      rating: require("../../assets/RequiredImages/Rating.png"),
       location: "Baghbazaar",
     },
     {
       key: "2",
       title: "House Cleaner",
       price: "Rs. 750",
-      image: require("../../assets/Required Images/Placeholder.png"),
-      rating: require("../../assets/Required Images/Rating.png"),
+      image: require("../../assets/RequiredImages/Placeholder.png"),
+      rating: require("../../assets/RequiredImages/Rating.png"),
       location: "Lazimpath",
     },
     {
       key: "3",
       title: "Cooking",
       price: "Rs. 1000",
-      image: require("../../assets/Required Images/Placeholder.png"),
-      rating: require("../../assets/Required Images/Rating.png"),
+      image: require("../../assets/RequiredImages/Placeholder.png"),
+      rating: require("../../assets/RequiredImages/Rating.png"),
       location: "Lainchaur",
     },
     {
       key: "4",
       title: "AC Repair",
       price: "Rs. 2000",
-      image: require("../../assets/Required Images/Placeholder.png"),
-      rating: require("../../assets/Required Images/Rating.png"),
+      image: require("../../assets/RequiredImages/Placeholder.png"),
+      rating: require("../../assets/RequiredImages/Rating.png"),
       location: "Nakhipot",
     },
     {
       key: "5",
       title: "Carpenter Service",
       price: "Rs. 1500",
-      image: require("../../assets/Required Images/Placeholder.png"),
-      rating: require("../../assets/Required Images/Rating.png"),
+      image: require("../../assets/RequiredImages/Placeholder.png"),
+      rating: require("../../assets/RequiredImages/Rating.png"),
       location: "Dolahity",
     },
     {
       key: "6",
       title: "Labor Job",
       price: "Rs. 650",
-      image: require("../../assets/Required Images/Placeholder.png"),
-      rating: require("../../assets/Required Images/Rating.png"),
+      image: require("../../assets/RequiredImages/Placeholder.png"),
+      rating: require("../../assets/RequiredImages/Rating.png"),
       location: "Rastrapati Bhawan",
     },
   ];
 
   const render_Flatlist_MyBookings = ({ item }) => (
     <View style={Styles.FlatList_MyBookingsElements_MainView}>
-      <Image source={item.image} />
+      <Image source={item.image} style={Styles.Image_FlatList_MyBookings} />
       <View style={Styles.FlatList_MyBookingsElements_DetailsView}>
-        <Text>{item.title}</Text>
-        <Text>{item.location}</Text>
-        <Text>{item.price}</Text>
-        <Image source={item.rating} />
+        <Text style={Styles.TitleText_FlatList_MyBookings}>{item.title}</Text>
+        <Text style={Styles.Location_FlatList_MyBookings}>{item.location}</Text>
+        <Text style={Styles.Price_Flatlist_MyBookings}>{item.price}</Text>
+        <Image source={item.rating} style={Styles.Rating_FlatList_MyBookings} />
       </View>
     </View>
+  );
+  return (
+    <FlatList
+      data={MyBookings_data}
+      renderItem={render_Flatlist_MyBookings}
+      keyExtractor={(MyBookingsList) => MyBookingsList.key}
+    />
   );
 };
 
