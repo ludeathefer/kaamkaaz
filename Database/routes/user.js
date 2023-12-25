@@ -1,12 +1,15 @@
 const userRouter = require('express').Router()
-const {modifyUser, deleteUser, getUser} = require("../controllers/user")
+const {
+  getUser,
+  modifyUser,
+} = require("../controllers/serviceUser");
 
 
 userRouter.route("/serviceUser/:userID").get(getUser);
-userRouter.route("/serviceUser/modify").patch(modifyUser);
-userRouter.route("/serviceUser/delete").delete(deleteUser);
+userRouter.route("/serviceUser/modify/:userID").patch(modifyUser);
 
 
 
 
-module.exports =userRouter
+module.exports = userRouter
+

@@ -19,6 +19,18 @@ const getUser = async (req, res, next) => {
 };
 
 
+const getUsers = async (req, res, next) => {
+  try {
+    const users = await ServiceProvider.find();
+    res.status(200).json(users);
+    console.log('here')
+  } catch (err) {
+    console.log(err)
+    next(err);
+  }
+};
+
+
 const acceptRequest = async (req, res, next) => {
   try {
     const { requestID } = req.params;
@@ -55,4 +67,18 @@ const getPendingJobs = async (req, res, next) =>{
 }
 
 
-module.exports = {getPendingJobs, getActiveJobs, acceptRequest, getUser}
+const modifyUser = async (req, res, next) => {
+  try {
+    const { userID } = req.params;
+    const user = await ServiceProvider.findByIdAndUpdate(userID, req.body, {
+      new: true,
+    });
+    res.json({ msg: "updated", new: user });
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+
+module.exports = {getPendingJobs, getActiveJobs, acceptRequest, getUser, modifyUser, getUsers}

@@ -6,14 +6,18 @@ const app= express();
 const connectDB=require('./db/connect')
 const {errorHandler} = require('./middleware/handleErrors')
 const authRouter= require("./routes/auth");
-const mainRouter= require("./routes/main");
+const requestRouter= require("./routes/request");
 const userRouter= require("./routes/user");
+const providerRouter= require("./routes/provider");
 const authenticate = require('./middleware/authentication');
+const verifyAdmin = require("./middleware/verifyAdmin");
+const adminRouter = require('./routes/admin');
 
 
 app.use(express.json({limit: '25mb'}));
 app.use('/',  authRouter)         //login or register, doesn't require authentication
-app.use('/', authenticate, mainRouter, userRouter)
+app.use('/', verifyAdmin, adminRouter)
+app.use('/', authenticate, requestRouter, userRouter, providerRouter)
 
 
 app.use(errorHandler);

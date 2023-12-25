@@ -1,5 +1,5 @@
 const ServiceUser = require("../models/ServiceUser");
-const Job = require("../models/Request");
+const Request = require("../models/Request");
 
 const {
   BadRequestError,
@@ -18,31 +18,19 @@ const getUser = async (req, res, next) => {
   }
 };
 
-const createRequest = async (req, res, next) => {
-  const user = await ServiceUser.findById(req.body.user.userID);
-  let newJob;
-  if (user) {
-    if (user.isVerified === true) {
-      const { title, desc, image, pay, location, providerID } = req.body;
-      newRequest = await Request.create({
-        title,
-        desc,
-        createdBy: user._id,
-        image,
-        pay,
-        location,
-        requestedTo: providerID
-      });
-      res.status(200).json({
-        msg: "request Created",
-        id: newRequest._id,
-      });
-    } else {
-      res.status(404).json({ msg: "not created" });
-    }
-  } else {
-    res.status(404).json({ msg: "not found" });
+
+
+const modifyUser = async( req, res, next)=>{
+  try {
+    const {userID}= req.params;
+    const user = await ServiceUser.findByIdAndUpdate(userID, req.body, {new:true})
+    res.json({msg: "updated", new: user})
+  } catch (error) {
+    next(error)
   }
-};
+}
 
 
+
+
+module.exports = { getUser, modifyUser}
