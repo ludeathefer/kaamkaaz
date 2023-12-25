@@ -14,7 +14,7 @@ const authenticate = require('./middleware/authentication');
 
 app.use(express.json({limit: '25mb'}));
 app.use('/',  authRouter)         //login or register, doesn't require authentication
-app.use('/', authenticate, requestRouter, userRouter, requestRouter)
+app.use('/', authenticate, requestRouter, userRouter, providerRouter)
 
 
 app.use(errorHandler);

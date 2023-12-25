@@ -13,4 +13,3 @@ userRouter.route("/serviceUser/modify/:userID").patch(modifyUser);
 
 module.exports = userRouter
 
-module.exports =userRouter
