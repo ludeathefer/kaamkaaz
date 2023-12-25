@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const ServiceUser = new mongoose.Schema({
+const ServiceUserSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Please provide name"],
@@ -12,7 +12,7 @@ const ServiceUser = new mongoose.Schema({
   password: {
     type: String,
     required: [true, "Password required"],
-    minlength: 8,
+    minlength: 4,
     maxlength: 64,
   },
   email: {
@@ -45,22 +45,22 @@ const ServiceUser = new mongoose.Schema({
   },
 });
 
-UserSchema.pre("save", async function () {
+ServiceUserSchema.pre("save", async function () {
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-UserSchema.methods.createJWT = async function () {
+ServiceUserSchema.methods.createJWT = async function () {
   return jwt.sign(
     { userID: this._id, name: this.name },
     process.env.JWT_SECRET,
     { expiresIn: "30d" }
   );
 };
-UserSchema.methods.verifyPassword = async function (enteredPassword) {
+ServiceUserSchema.methods.verifyPassword = async function (enteredPassword) {
   const salt = await bcrypt.genSalt(10);
   enteredPassword = await bcrypt.hash(enteredPassword, salt);
   return bcrypt.compare(enteredPassword, this.password);
 };
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("ServiceUser", ServiceUserSchema);
