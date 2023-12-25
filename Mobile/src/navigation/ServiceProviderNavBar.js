@@ -9,7 +9,7 @@ import { verticalScale, horizontalScale, moderateScale } from '../constants/meas
 
 const Tab = createBottomTabNavigator();
 
-const Bottomtabnagivator =  () => {
+const ServiceProviderNavBar =  () => {
   return (
     <Tab.Navigator 
       screenOptions={{
@@ -70,7 +70,7 @@ const Bottomtabnagivator =  () => {
 
         )
          }}/>
-      <Tab.Screen name="Cart" component={CartScreen} options={{
+      <Tab.Screen name="Profile" component={CartScreen} options={{
         headerShown:  false,
         tabBarShowLabel: false,
         tabBarLabel: ({ focused }) => {
@@ -86,7 +86,7 @@ const Bottomtabnagivator =  () => {
         tabBarIcon: ({focused}) => (
           <View>
             <Image 
-            source ={require('../../assets/Icons/cart.png')}
+            source ={require('../../assets/Icons/profile.png')}
             resizeMode = 'contain'
             style = {{
               width: 32,
@@ -102,7 +102,7 @@ const Bottomtabnagivator =  () => {
   );
 }
 
-export default Bottomtabnagivator;
+export default ServiceProviderNavBar;
 
 const styles = StyleSheet.create({
   BottomTabBar:{
