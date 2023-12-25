@@ -1,9 +1,6 @@
 import { StyleSheet } from "react-native";
-import {
-  horizontalScale,
-  verticalScale,
-  moderateScale,
-} from "../assets/Constants/measurements";
+import { moderateScale, verticalScale, horizontalScale } from "./Constants/measurements";
+
 const Styles = StyleSheet.create({
   container_Default: {
     flex: 1,
