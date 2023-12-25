@@ -1,4 +1,4 @@
-import { FlatList, View, Image, Text } from "react-native";
+import { FlatList, View, Image, Text, TouchableOpacity } from "react-native";
 import Styles from "../StyleHolder";
 
 const FlatList_MyBookings = () => {
@@ -17,7 +17,7 @@ const FlatList_MyBookings = () => {
       price: "Rs. 750",
       image: require("../../assets/RequiredImages/Placeholder.png"),
       rating: require("../../assets/RequiredImages/Rating.png"),
-      location: "Lazimpath",
+      location: "Near Gairidhara, Gyandeep Marg, opposite of himsudha Colony",
     },
     {
       key: "3",
@@ -55,13 +55,20 @@ const FlatList_MyBookings = () => {
 
   const render_Flatlist_MyBookings = ({ item }) => (
     <View style={Styles.FlatList_MyBookingsElements_MainView}>
-      <Image source={item.image} style={Styles.Image_FlatList_MyBookings} />
-      <View style={Styles.FlatList_MyBookingsElements_DetailsView}>
-        <Text style={Styles.TitleText_FlatList_MyBookings}>{item.title}</Text>
-        <Text style={Styles.Location_FlatList_MyBookings}>{item.location}</Text>
-        <Text style={Styles.Price_Flatlist_MyBookings}>{item.price}</Text>
-        <Image source={item.rating} style={Styles.Rating_FlatList_MyBookings} />
-      </View>
+      <TouchableOpacity style={{ flexDirection: "row" }}>
+        <Image source={item.image} style={Styles.Image_FlatList_MyBookings} />
+        <View style={Styles.FlatList_MyBookingsElements_DetailsView}>
+          <Text style={Styles.TitleText_FlatList_MyBookings}>{item.title}</Text>
+          <Text style={Styles.Location_FlatList_MyBookings}>
+            {item.location}
+          </Text>
+          <Text style={Styles.Price_Flatlist_MyBookings}>{item.price}</Text>
+          <Image
+            source={item.rating}
+            style={Styles.Rating_FlatList_MyBookings}
+          />
+        </View>
+      </TouchableOpacity>
     </View>
   );
   return (
@@ -69,6 +76,8 @@ const FlatList_MyBookings = () => {
       data={MyBookings_data}
       renderItem={render_Flatlist_MyBookings}
       keyExtractor={(MyBookingsList) => MyBookingsList.key}
+      scrollEnabled={false}
+      // showsVerticalScrollIndicator={true}
     />
   );
 };
