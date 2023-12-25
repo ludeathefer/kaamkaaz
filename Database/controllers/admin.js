@@ -12,6 +12,17 @@ const getUsers = async(req, res, next)=>{
         next(error)
     }
 }
+const login = async(req, res, next)=>{
+    try{
+        const {secret} = req.body
+        if(secret === process.env.ADMIN_SECRET){
+            res.json({msg:"success"})
+        }
+        else res.json({msg:"Wrong secret"})
+    }catch(error){
+        next(error)
+    }
+}
 const getUser = async(req, res, next)=>{
     try{
         const {userID} = req.params
@@ -33,4 +44,4 @@ const modifyUser = async(req, res, next)=>{
 }
 
 
-module.exports= {modifyUser, getUser, getUsers}
+module.exports= {modifyUser, getUser, getUsers, login}
