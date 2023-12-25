@@ -6,7 +6,6 @@ const {
   listApplicants,
 } = require("../controllers/user");
 
-
 mainRouter.route('/paid').get(getPaidJobs).post(createJob)
 mainRouter.route('/community').get(getCommunityJobs).post(createJob)
 mainRouter.route("/paid/:jobID").patch(applyToJob).get(getJob).delete(closeJob)
