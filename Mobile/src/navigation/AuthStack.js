@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import login_selection from '../authScreens/login_selection';
-import LoginScreen from '../authScreens/login';
-import RegisterScreen from '../authScreens/register';
+import login_selection from '../authScreen/login_selection.js';
+import LoginScreen from '../authScreen/login';
+import RegisterScreen from '../authScreen/register';
 
 const AuthStackBar = createStackNavigator()
 
