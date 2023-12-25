@@ -1,9 +1,11 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import {
   moderateScale,
   verticalScale,
   horizontalScale,
 } from "../src/constants/measurements";
+const screenHeight = Dimensions.get("window").height;
+const screenWidth = Dimensions.get("window").width;
 
 const Styles = StyleSheet.create({
   container_Default: {
@@ -13,7 +15,7 @@ const Styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "column",
   },
-  FlatList_MyBookingsElements_MainView: {
+  FlatList_MyBookings_ConsumerElements_MainView: {
     flex: 1,
     flexDirection: "row",
     height: verticalScale(175),
@@ -25,41 +27,46 @@ const Styles = StyleSheet.create({
     alignItems: "center",
     // justifyContent: "center",
   },
-  FlatList_MyBookingsElements_DetailsView: {
+  FlatList_MyBookings_ConsumerElements_DetailsView: {
     flex: 1,
     flexDirection: "column",
   },
-  TitleText_FlatList_MyBookings: {
+  TitleText_FlatList_MyBookings_Consumer: {
     fontSize: moderateScale(18),
     fontWeight: "500",
     // alignSelf: "flex-start",
     marginTop: verticalScale(8),
   },
-  Location_FlatList_MyBookings: {
+  Location_FlatList_MyBookings_Consumer: {
     fontSize: moderateScale(12),
     marginTop: verticalScale(5),
     // alignSelf: "flex-start",
   },
-  Price_Flatlist_MyBookings: {
+  Price_Flatlist_MyBookings_Consumer: {
     fontSize: moderateScale(12),
     marginTop: verticalScale(5),
   },
-  Rating_FlatList_MyBookings: {
+  Rating_FlatList_MyBookings_Consumer: {
     height: verticalScale(20),
     width: "100%",
     marginTop: verticalScale(5),
   },
-  Image_FlatList_MyBookings: {
+  Image_FlatList_MyBookings_Consumer: {
     height: verticalScale(125),
     width: horizontalScale(150),
     marginLeft: verticalScale(10),
     marginRight: verticalScale(10),
     borderRadius: moderateScale(20),
   },
-  BackIcon_MyBookings: {
+  BackIcon_MyBookings_Consumer: {
     height: horizontalScale(40),
     width: verticalScale(40),
     tintColor: "#111111",
+  },
+  Map_View: {
+    flex: 1,
+    height: screenHeight,
+    width: screenWidth,
   },
 });
 

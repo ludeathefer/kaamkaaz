@@ -1,8 +1,8 @@
 import { FlatList, View, Image, Text, TouchableOpacity } from "react-native";
 import Styles from "../StyleHolder";
 
-const FlatList_MyBookings = () => {
-  const MyBookings_data = [
+const FlatList_MyBookings_Consumer = () => {
+  const MyBookings_Consumer_data = [
     {
       key: "1",
       title: "Electrical Socket Repair",
@@ -53,19 +53,26 @@ const FlatList_MyBookings = () => {
     },
   ];
 
-  const render_Flatlist_MyBookings = ({ item }) => (
-    <View style={Styles.FlatList_MyBookingsElements_MainView}>
+  const render_Flatlist_MyBookings_Consumer = ({ item }) => (
+    <View style={Styles.FlatList_MyBookings_ConsumerElements_MainView}>
       <TouchableOpacity style={{ flexDirection: "row" }}>
-        <Image source={item.image} style={Styles.Image_FlatList_MyBookings} />
-        <View style={Styles.FlatList_MyBookingsElements_DetailsView}>
-          <Text style={Styles.TitleText_FlatList_MyBookings}>{item.title}</Text>
-          <Text style={Styles.Location_FlatList_MyBookings}>
+        <Image
+          source={item.image}
+          style={Styles.Image_FlatList_MyBookings_Consumer}
+        />
+        <View style={Styles.FlatList_MyBookings_ConsumerElements_DetailsView}>
+          <Text style={Styles.TitleText_FlatList_MyBookings_Consumer}>
+            {item.title}
+          </Text>
+          <Text style={Styles.Location_FlatList_MyBookings_Consumer}>
             {item.location}
           </Text>
-          <Text style={Styles.Price_Flatlist_MyBookings}>{item.price}</Text>
+          <Text style={Styles.Price_Flatlist_MyBookings_Consumer}>
+            {item.price}
+          </Text>
           <Image
             source={item.rating}
-            style={Styles.Rating_FlatList_MyBookings}
+            style={Styles.Rating_FlatList_MyBookings_Consumer}
           />
         </View>
       </TouchableOpacity>
@@ -73,13 +80,13 @@ const FlatList_MyBookings = () => {
   );
   return (
     <FlatList
-      data={MyBookings_data}
-      renderItem={render_Flatlist_MyBookings}
-      keyExtractor={(MyBookingsList) => MyBookingsList.key}
+      data={MyBookings_Consumer_data}
+      renderItem={render_Flatlist_MyBookings_Consumer}
+      keyExtractor={(MyBookings_ConsumerList) => MyBookings_ConsumerList.key}
       scrollEnabled={false}
       // showsVerticalScrollIndicator={true}
     />
   );
 };
 
-export default FlatList_MyBookings;
+export default FlatList_MyBookings_Consumer;
