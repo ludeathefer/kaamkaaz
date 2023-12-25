@@ -1,15 +1,32 @@
 import { StyleSheet, Text, View } from "react-native";
 import Styles from "./src/StyleHolder";
 import MyBookings from "./src/screens/MyBookings";
-import { StatusBar } from "react-native";
-const statusBarHeight = StatusBar.currentHeight || 0;
+import React, { useState } from "react";
+import AppLoading from "expo-app-loading";
+import { NavigationContainer } from "@react-navigation/native";
+import useFonts from "./src/hooks/useFonts.js";
+import AuthStack from "./src/navigation/AuthStack.js";
 
 export default function App() {
-  return (
-    <View style={[Styles.container_Default, { marginTop: statusBarHeight }]}>
-      <StatusBar barStyle="light-content" backgroundColor="red" translucent />
+  const [IsReady, SetIsReady] = useState(false);
 
-      <MyBookings />
-    </View>
+  const LoadFonts = async () => {
+    await useFonts();
+  };
+
+  if (!IsReady) {
+    return (
+      <AppLoading
+        startAsync={LoadFonts}
+        onFinish={() => SetIsReady(true)}
+        onError={() => {}}
+      />
+    );
+  }
+
+  return (
+    <NavigationContainer>
+      <AuthStack />
+    </NavigationContainer>
   );
 }
