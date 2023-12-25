@@ -8,9 +8,9 @@ const {
   modifyUser,
 } = require("../controllers/serviceProvider")
 
-providerRouter.route("/providerRouter/:userID").get(getUser);
-providerRouter.route("/providerRouter/modify/:userID").patch(modifyUser);
-providerRouter.route('/providerRouter/all').get(getUsers);
+providerRouter.route("/provider/:userID").get(getUser);
+providerRouter.route("/provider/modify/:userID").patch(modifyUser);
+providerRouter.route('/provider/').get(getUsers);
 
 
 module.exports = providerRouter

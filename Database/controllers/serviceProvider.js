@@ -22,8 +22,10 @@ const getUser = async (req, res, next) => {
 const getUsers = async (req, res, next) => {
   try {
     const users = await ServiceProvider.find();
-    res.status(200).json(user);
+    res.status(200).json(users);
+    console.log('here')
   } catch (err) {
+    console.log(err)
     next(err);
   }
 };
@@ -68,7 +70,7 @@ const getPendingJobs = async (req, res, next) =>{
 const modifyUser = async (req, res, next) => {
   try {
     const { userID } = req.params;
-    const user = await ServiceUser.findByIdAndUpdate(userID, req.body, {
+    const user = await ServiceProvider.findByIdAndUpdate(userID, req.body, {
       new: true,
     });
     res.json({ msg: "updated", new: user });

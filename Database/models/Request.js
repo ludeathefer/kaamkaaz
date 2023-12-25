@@ -27,6 +27,10 @@ const RequestSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  requestedTo: {
+    type: String,
+    required: false,
+  },
   acceptedBy: {
     type: String,
     required: false
