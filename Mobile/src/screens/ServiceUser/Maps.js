@@ -2,7 +2,10 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import React, { useState, useContext } from "react";
 import MapView, { Marker, Region } from "react-native-maps";
 // import { LocationContext } from "../../hooks/context";
-import Styles from "../StyleHolder";
+import Styles from "../../StyleHolder";
+
+
+
 const ViewMaps = ({ navigation }) => {
   //   const [location, setLocation] = useContext();
   const [confirmed, setConfirmed] = useState(false);

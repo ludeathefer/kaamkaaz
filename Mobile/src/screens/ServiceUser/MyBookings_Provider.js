@@ -12,8 +12,8 @@ import {
   horizontalScale,
   verticalScale,
   moderateScale,
-} from "../constants/measurements";
-import Styles from "../StyleHolder";
+} from "../../constants/measurements";
+import Styles from "../../StyleHolder";
 
 const MyBookings_Provider = () => {
   const [selectedBookingStatusProvider, setSelectedBookingStatusProvider] =
