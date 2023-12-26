@@ -14,7 +14,7 @@ const verifyAdmin = require("./middleware/verifyAdmin");
 const adminRouter = require('./routes/admin');
 
 
-app.use(express.json({limit: '25mb'}));
+app.use(express.json());
 app.use('/',  authRouter)         //login or register, doesn't require authentication
 app.use('/', verifyAdmin, adminRouter)
 app.use('/', authenticate, requestRouter, userRouter, providerRouter)
