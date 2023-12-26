@@ -1,21 +1,19 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import { AdminContext } from "../hooks/context";
-import firebase from 'firebase/compat/app';
 
 const Home = () => {
   const [Auth, setAuth] = useContext(AdminContext).auth;
   const navigate = useNavigate();
   const adminName = "Falano";
 
-  useEffect(()=> {
-    if(!Auth) navigate("/login")
-    else navigate("/");
-  }, [Auth]);
+  // useEffect(()=> {
+  //   if(!Auth) navigate("/login")
+  //   else navigate("/");
+  // }, [Auth]);
 
   const logOut = ()=> {
-    firebase.auth().signOut();
-    setAuth(false);
+
   };
 
   return (
