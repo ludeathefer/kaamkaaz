@@ -1,8 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
-import Styles from "./src/StyleHolder";
+import {useState} from "react"
+import AppLoading from 'expo-app-loading';
 import { StatusBar } from "react-native";
 const statusBarHeight = StatusBar.currentHeight || 0;
 import { useFonts } from "./src/hooks/useFonts.js"
+import { NavigationContainer } from '@react-navigation/native';
+import NormalUserStack from "./src/navigation/NormalUserHomeStack.js";
+import AuthStack from "./src/navigation/AuthStack.js";
+
 
 export default function App() {
 
@@ -26,7 +30,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar barStyle="light-content" backgroundColor="red" translucent />
-      <MainStack />
+      <AuthStack/>
     </NavigationContainer>
 
   );

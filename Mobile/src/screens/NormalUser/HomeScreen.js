@@ -2,23 +2,28 @@ import { View, Text, Image, Dimensions, ScrollView } from 'react-native'
 import React, {useState} from 'react'
 import { horizontalScale, moderateScale, verticalScale } from '../../constants/measurements'
 import { Searchbar } from 'react-native-paper'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const windowWidth = Dimensions.get('window').width;
 
 const categoryArray = Array.from({ length:  8}, (v, i) => i);
-const CategoryItem = categoryArray.map(() => {
+const CategoryItem = categoryArray.map(({navigation}) => {
+  console.log(navigation)
   return (
-    <View style={{width: horizontalScale(160), height: verticalScale(132), borderRadius: moderateScale(10), backgroundColor:'#EBECED', justifyContent:'center', alignItems:'center', marginHorizontal: 10, marginTop:10}}>
+    <TouchableOpacity onPress={() => {
+      navigation.navigate("ServiceDetail")}}>
+      <View style={{width: horizontalScale(160), height: verticalScale(132), borderRadius: moderateScale(10), backgroundColor:'#EBECED', justifyContent:'center', alignItems:'center', marginHorizontal: 10, marginTop:10}}>
       <Image source={require('../../../assets/categoryimages/barber.png')} resizeMode='cover' style={{ height: verticalScale(60), width: horizontalScale(60), tintColor: '#153963' }}/>
       <Text style={{
         color: '#153963',
         marginTop: verticalScale(20),
       }}>Barber</Text>
     </View>
+    </TouchableOpacity>
   )});
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
 
     const [searchQuery, setSearchQuery] = useState('');
     const onChangeSearch = query => setSearchQuery(query);
