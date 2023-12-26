@@ -2,10 +2,12 @@ import { View, Text, Image, TextInput } from 'react-native'
 import React from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { verticalScale, moderateScale, horizontalScale } from '../constants/measurements'
+import { KeyboardAwareScrollView } from 'react-native-ui-lib'
 
 const RegisterScreen = ({navigation}) => {
   return (
     <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#fff', justifyContent: 'flex-start', }}>
+      <KeyboardAwareScrollView>
     <TouchableOpacity style={{position: 'absolute', marginTop: verticalScale(70), marginLeft: horizontalScale(20),}}onPress={() => {
         navigation.goBack()
       }}>
@@ -26,7 +28,6 @@ const RegisterScreen = ({navigation}) => {
       style={{
         backgroundColor: '#EAEAEA',
         width: horizontalScale(300),
-        height: verticalScale(55),
         borderRadius: moderateScale(18),
         alignSelf: 'center',
         padding: moderateScale(20),
@@ -45,7 +46,6 @@ const RegisterScreen = ({navigation}) => {
       style={{
         backgroundColor: '#EAEAEA',
         width: horizontalScale(300),
-        height: verticalScale(55),
         borderRadius: moderateScale(18),
         alignSelf: 'center',
         padding: moderateScale(20),
@@ -65,7 +65,7 @@ const RegisterScreen = ({navigation}) => {
       style={{
         backgroundColor: '#EAEAEA',
         width: horizontalScale(300),
-        height: verticalScale(55),
+        
         borderRadius: moderateScale(18),
         alignSelf: 'center',
         padding: moderateScale(20),
@@ -87,6 +87,7 @@ const RegisterScreen = ({navigation}) => {
       </View>
     </TouchableOpacity>
 
+    </KeyboardAwareScrollView>
     </View>
   )
 }
