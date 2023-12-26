@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const app= express();
+const cors = require('cors')
 
 //middlewares
 const connectDB=require('./db/connect')
@@ -14,10 +15,10 @@ const verifyAdmin = require("./middleware/verifyAdmin");
 const adminRouter = require('./routes/admin');
 const {login} = require("./routes/admin")
 
-
 app.use(express.json());
+app.use(cors())
 app.use('/',  authRouter)
-app.post('/admin/login', login)         //login or register, doesn't require authentication
+        //login or register, doesn't require authentication
 app.use('/', verifyAdmin, adminRouter)
 app.use('/', authenticate, requestRouter, userRouter, providerRouter)
 
