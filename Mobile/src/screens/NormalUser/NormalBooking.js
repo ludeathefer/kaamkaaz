@@ -14,6 +14,7 @@ import {
   verticalScale,
 } from "../../constants/measurements";
 import React, { useState } from "react";
+const statusBarHeight = StatusBar.currentHeight || 0;
 
 const NormalBooking = () => {
   const [selectedBookingStatus, setSelectedBookingStatus] = useState(0);
@@ -267,7 +268,7 @@ const NormalBooking = () => {
   );
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ marginTop: statusBarHeight }}>
       <ScrollView>
         <View
           style={[
