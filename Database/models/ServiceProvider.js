@@ -1,7 +1,6 @@
-const mongoose = require('mongoose')
-const bcrypt = require('bcryptjs')
-const jwt = require("jsonwebtoken")
-
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const ServiceProviderSchema = new mongoose.Schema({
   name: {
@@ -35,31 +34,37 @@ const ServiceProviderSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  ratings:{
-    type:[Number]
+  ratings: {
+    type: [Number],
   },
-  pendingJobs:{
-    type: [String]
+  pendingJobs: {
+    type: [String],
   },
-  completedJobs:{
-    type: [String]
-  }
+  completedJobs: {
+    type: [String],
+  },
 });
 
-ServiceProviderSchema.pre('save',async function(){
-    const salt = await bcrypt.genSalt(10);
-    this.password= await bcrypt.hash(this.password, salt);
-})
-
-ServiceProviderSchema.methods.createJWT= async function(){
-  return jwt.sign(
-    {userID: this._id, name:this.name }, process.env.JWT_SECRET, {expiresIn:'30d'}  )
-}
-ServiceProviderSchema.methods.verifyPassword=async function(enteredPassword){
+ServiceProviderSchema.pre("save", async function () {
   const salt = await bcrypt.genSalt(10);
-  enteredPassword= await bcrypt.hash(enteredPassword, salt)
-  return bcrypt.compare(enteredPassword, this.password)
-}
+  this.password = await bcrypt.hash(this.password, salt);
+});
 
+ServiceProviderSchema.methods.createJWT = async function () {
+  return jwt.sign(
+    { userID: this._id, name: this.name },
+    process.env.JWT_SECRET,
+    { expiresIn: "30d" }
+  );
+};
 
-module.exports = mongoose.model('ServiceProvider', ServiceProviderSchema)
+ServiceProviderSchema.methods.verifyPassword = async function (
+  enteredPassword
+) {
+  console.log("Called");
+  const salt = await bcrypt.genSalt(10);
+  enteredPassword = await bcrypt.hash(enteredPassword, salt);
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
+module.exports = mongoose.model("ServiceProvider", ServiceProviderSchema);

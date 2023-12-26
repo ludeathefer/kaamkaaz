@@ -1,4 +1,3 @@
-import { StyleSheet, Text, View } from "react-native";
 import Styles from "./src/StyleHolder";
 // import MyBookings from "./src/screens/MyBookings";
 import React, { useState } from "react";

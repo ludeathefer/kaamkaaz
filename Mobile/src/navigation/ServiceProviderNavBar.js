@@ -5,7 +5,8 @@ import HomeScreen from '../screens/NormalUser/HomeScreen';
 import NormalBooking from '../screens/NormalUser/NormalBooking';
 import CartScreen from '../screens/NormalUser/CartScreen';
 import { verticalScale, horizontalScale, moderateScale } from '../constants/measurements';
-
+import ViewMaps from '../screens/ServiceUser/Maps'
+import MyBookings_Provider from '../screens/ServiceUser/MyBookings_Provider'
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +18,7 @@ const ServiceProviderNavBar =  () => {
       shifting : 'true',
       tabBarStyle : styles.BottomTabBar,
      }} >
-        <Tab.Screen name='Home' component={HomeScreen} options={{
+        <Tab.Screen name='Maps' component={ViewMaps} options={{
                 headerShown:  false, 
                 tabBarShowLabel: false,
                tabBarLabel: ({ focused }) => {
@@ -43,7 +44,7 @@ const ServiceProviderNavBar =  () => {
 
         )
          }}/>
-      <Tab.Screen name="Booking" component={NormalBooking} options={{
+      <Tab.Screen name="ServiceProvider" component={MyBookings_Provider} options={{
         headerShown:  false,
         tabBarShowLabel: false,
         tabBarLabel: ({ focused }) => {
@@ -70,7 +71,7 @@ const ServiceProviderNavBar =  () => {
 
         )
          }}/>
-      <Tab.Screen name="Profile" component={CartScreen} options={{
+      <Tab.Screen name="Profile" component={MyBookings_Provider} options={{
         headerShown:  false,
         tabBarShowLabel: false,
         tabBarLabel: ({ focused }) => {

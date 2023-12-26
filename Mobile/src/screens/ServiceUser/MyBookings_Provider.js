@@ -15,7 +15,7 @@ import {
 } from "../../constants/measurements";
 import Styles from "../../StyleHolder";
 
-const MyBookings_Provider = () => {
+const MyBookings_Provider = ({navigation}) => {
   const [selectedBookingStatusProvider, setSelectedBookingStatusProvider] =
     useState(0);
 

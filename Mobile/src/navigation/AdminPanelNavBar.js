@@ -6,11 +6,13 @@ import NormalBooking from '../screens/NormalUser/NormalBooking';
 import CartScreen from '../screens/NormalUser/CartScreen';
 import { verticalScale, horizontalScale, moderateScale } from '../constants/measurements';
 import NormalUserHomeStack from './NormalUserHomeStack';
+import VerifiedList from '../screens/AdminPanel/VerifiedList';
+import WaitingList from '../screens/AdminPanel/WaitingList';
 
 
 const Tab = createBottomTabNavigator();
 
-const Bottomtabnagivator =  () => {
+const admintabnavigator =  () => {
   return (
     <Tab.Navigator 
       screenOptions={{
@@ -18,7 +20,7 @@ const Bottomtabnagivator =  () => {
       shifting : 'true',
       tabBarStyle : styles.BottomTabBar,
      }} >
-        <Tab.Screen name='Home' component={NormalUserHomeStack} options={{
+        <Tab.Screen name='Home' component={WaitingList} options={{
                 headerShown:  false, 
                 tabBarShowLabel: false,
                tabBarLabel: ({ focused }) => {
@@ -44,41 +46,15 @@ const Bottomtabnagivator =  () => {
 
         )
          }}/>
-      <Tab.Screen name="Booking" component={NormalBooking} options={{
-        headerShown:  false,
-        tabBarShowLabel: false,
-        tabBarLabel: ({ focused }) => {
-          return <Text style={{fontSize: 16, fontWeight: '600', color: "#fff", marginLeft: 25}}>{focused ? 'Paid' : ""}</Text>
-        },
-        tabBarActiveBackgroundColor: '#153963',
-        tabBarItemStyle: {  
-          align:'center',
-          borderRadius: 32,
-          borderWidth: 5,
-          borderColor: '#ffffff'
-         },
-        tabBarLabelPosition: 'beside-icon',
-        tabBarIcon: ({focused}) => (
-          <View>
-            <Image 
-            source ={require('../../assets/Icons/booking.png')}
-            resizeMode = 'contain'
-            style = {{
-              
-              tintColor : focused ? '#ffffff' :  '#153963'
-            }}/>
-          </View >
-
-        )
-         }}/>
-      <Tab.Screen name="Cart" component={CartScreen} options={{
+    
+      <Tab.Screen name="Cart" component={VerifiedList} options={{
         headerShown:  false,
         tabBarShowLabel: false,
         tabBarLabel: ({ focused }) => {
           return <Text style={{fontSize: 16, fontWeight: '600', color: "#fff", marginLeft: 15, textAlign: 'center'}}>{focused ? 'Volunteers' : ""}</Text>
         },
         tabBarLabelPosition: 'beside-icon',
-        tabBarActiveBackgroundColor: '#2FAD97',
+        tabBarActiveBackgroundColor: '#E85F5C',
         tabBarItemStyle: {  
           borderRadius: 32,
           borderWidth: 5,
@@ -103,7 +79,7 @@ const Bottomtabnagivator =  () => {
   );
 }
 
-export default Bottomtabnagivator;
+export default admintabnavigator;
 
 const styles = StyleSheet.create({
   BottomTabBar:{
