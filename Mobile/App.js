@@ -1,18 +1,32 @@
 import { StyleSheet, Text, View } from "react-native";
 import Styles from "./src/StyleHolder";
-import MyBookings_Consumer from "./src/screens/MyBookings_Consumer";
-import { StatusBar } from "react-native";
-import MyBookings_Provider from "./src/screens/MyBookings_Provider";
-const statusBarHeight = StatusBar.currentHeight || 0;
-import ViewMaps from "./src/screens/Maps";
+import MyBookings from "./src/screens/MyBookings";
+import React, { useState } from "react";
+import AppLoading from "expo-app-loading";
+import { NavigationContainer } from "@react-navigation/native";
+import useFonts from "./src/hooks/useFonts.js";
+import AuthStack from "./src/navigation/AuthStack.js";
 
 export default function App() {
+  const [IsReady, SetIsReady] = useState(false);
+
+  const LoadFonts = async () => {
+    await useFonts();
+  };
+
+  if (!IsReady) {
+    return (
+      <AppLoading
+        startAsync={LoadFonts}
+        onFinish={() => SetIsReady(true)}
+        onError={() => {}}
+      />
+    );
+  }
+
   return (
-    <View style={[Styles.container_Default, { marginTop: statusBarHeight }]}>
-      <StatusBar barStyle="light-content" backgroundColor="red" translucent />
-      {/* <MyBookings_Provider /> */}
-      {/* <MyBookings_Consumer /> */}
-      <ViewMaps />
-    </View>
+    <NavigationContainer>
+      <AuthStack />
+    </NavigationContainer>
   );
 }

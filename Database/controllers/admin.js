@@ -12,7 +12,7 @@ const getUsers = async(req, res, next)=>{
         next(error)
     }
 }
-const login = async(req, res, next)=>{
+const adminLogin = async(req, res, next)=>{
     try{
         const {secret} = req.body
         if(secret === process.env.ADMIN_SECRET){
@@ -44,4 +44,4 @@ const modifyUser = async(req, res, next)=>{
 }
 
 
-module.exports= {modifyUser, getUser, getUsers, login}
+module.exports= {modifyUser, getUser, getUsers, adminLogin}
