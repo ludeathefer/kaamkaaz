@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import ServiceDetail from '../screens/NormalUser/ServiceDetail';
+import HomeScreen from '../screens/NormalUser/HomeScreen';
 
 const NormalUserHomeStackBar = createStackNavigator()
 
