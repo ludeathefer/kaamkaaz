@@ -18,18 +18,16 @@ const getUser = async (req, res, next) => {
   }
 };
 
-
 const getUsers = async (req, res, next) => {
   try {
     const users = await ServiceProvider.find();
     res.status(200).json(users);
-    console.log('here')
+    console.log("here");
   } catch (err) {
-    console.log(err)
+    console.log(err);
     next(err);
   }
 };
-
 
 const acceptRequest = async (req, res, next) => {
   try {
@@ -37,7 +35,7 @@ const acceptRequest = async (req, res, next) => {
     let request = await Request.findOne({ _id: requestID });
     if (!request) next(new NotFoundError("invalid job id"));
     else {
-     await Request.findByIdAndUpdate(
+      await Request.findByIdAndUpdate(
         requestID,
         { acceptedBy: req.body.user.userID },
         { new: true }
@@ -49,23 +47,25 @@ const acceptRequest = async (req, res, next) => {
   }
 };
 
-
-const getActiveJobs = async (req, res, next) =>{
-    try{
-    const activeJobs = await Request.find({acceptedBy: req.body.user.userID });
+const getActiveJobs = async (req, res, next) => {
+  try {
+    const activeJobs = await Request.find({ acceptedBy: req.body.user.userID });
     res.status(200).json(active);
-    }catch(err){next(err)}
-}
+  } catch (err) {
+    next(err);
+  }
+};
 
-const getPendingJobs = async (req, res, next) =>{
-    try {
-        const pendingRequests =  await Request.find({requestedTo : req.user.userID})
-        res.json({pendingRequests})
-    } catch (error) {next(error)
-        
-    }
-}
-
+const getPendingJobs = async (req, res, next) => {
+  try {
+    const pendingRequests = await Request.find({
+      requestedTo: req.user.userID,
+    });
+    res.json({ pendingRequests });
+  } catch (error) {
+    next(error);
+  }
+};
 
 const modifyUser = async (req, res, next) => {
   try {
@@ -79,6 +79,11 @@ const modifyUser = async (req, res, next) => {
   }
 };
 
-
-
-module.exports = {getPendingJobs, getActiveJobs, acceptRequest, getUser, modifyUser, getUsers}
+module.exports = {
+  getPendingJobs,
+  getActiveJobs,
+  acceptRequest,
+  getUser,
+  modifyUser,
+  getUsers,
+};

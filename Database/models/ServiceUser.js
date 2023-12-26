@@ -25,11 +25,7 @@ const ServiceUserSchema = new mongoose.Schema({
     ],
   },
 
-  isOrg: {
-    type: Boolean,
-    required: false,
-    default: false,
-  },
+  
   avatar: {
     type: String,
     required: false,
@@ -60,7 +56,7 @@ ServiceUserSchema.methods.createJWT = async function () {
 ServiceUserSchema.methods.verifyPassword = async function (enteredPassword) {
   const salt = await bcrypt.genSalt(10);
   enteredPassword = await bcrypt.hash(enteredPassword, salt);
-  return bcrypt.compare(enteredPassword, this.password);
+  return await bcrypt.compare(enteredPassword, this.password);
 };
 
 module.exports = mongoose.model("ServiceUser", ServiceUserSchema);
