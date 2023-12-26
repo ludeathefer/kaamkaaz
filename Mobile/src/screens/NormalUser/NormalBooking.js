@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   FlatList,
+  StatusBar,
 } from "react-native";
 import Styles from "../../StyleHolder";
 import {
@@ -18,6 +19,9 @@ const statusBarHeight = StatusBar.currentHeight || 0;
 
 const NormalBooking = () => {
   const [selectedBookingStatus, setSelectedBookingStatus] = useState(0);
+  const onProfilePicClicked = () => {
+    console.log("Profile Icon on My Bookings Clicked");
+  };
   const bookingStatusArray = ["Pending", "Accepted", "Completed", "Cancelled"];
   const bookingStatusData = [
     [
@@ -26,7 +30,7 @@ const NormalBooking = () => {
         title: "Electrical Socket Repair",
         price: "Rs. 500",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Baghbazaar",
       },
       {
@@ -34,7 +38,7 @@ const NormalBooking = () => {
         title: "House Cleaner",
         price: "Rs. 750",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Near Gairidhara, Gyandeep Marg, opposite of himsudha Colony",
       },
       {
@@ -42,7 +46,7 @@ const NormalBooking = () => {
         title: "Cooking",
         price: "Rs. 1000",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Lainchaur",
       },
       {
@@ -50,7 +54,7 @@ const NormalBooking = () => {
         title: "AC Repair",
         price: "Rs. 2000",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Nakhipot",
       },
       {
@@ -58,7 +62,7 @@ const NormalBooking = () => {
         title: "Carpenter Service",
         price: "Rs. 1500",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Dolahity",
       },
       {
@@ -66,7 +70,7 @@ const NormalBooking = () => {
         title: "Labor Job",
         price: "Rs. 650",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Rastrapati Bhawan",
       },
     ],
@@ -76,7 +80,7 @@ const NormalBooking = () => {
         title: "Boomer Socket Repair",
         price: "Rs. 500",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Baghbazaar",
       },
       {
@@ -84,7 +88,7 @@ const NormalBooking = () => {
         title: "House Cleaner",
         price: "Rs. 750",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Near Gairidhara, Gyandeep Marg, opposite of himsudha Colony",
       },
       {
@@ -92,7 +96,7 @@ const NormalBooking = () => {
         title: "Cooking",
         price: "Rs. 1000",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Lainchaur",
       },
       {
@@ -100,7 +104,7 @@ const NormalBooking = () => {
         title: "AC Repair",
         price: "Rs. 2000",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Nakhipot",
       },
       {
@@ -108,7 +112,7 @@ const NormalBooking = () => {
         title: "Carpenter Service",
         price: "Rs. 1500",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Dolahity",
       },
       {
@@ -116,7 +120,7 @@ const NormalBooking = () => {
         title: "Labor Job",
         price: "Rs. 650",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Rastrapati Bhawan",
       },
     ],
@@ -126,7 +130,7 @@ const NormalBooking = () => {
         title: "Coomer Socket Repair",
         price: "Rs. 500",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Baghbazaar",
       },
       {
@@ -134,7 +138,7 @@ const NormalBooking = () => {
         title: "House Cleaner",
         price: "Rs. 750",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Near Gairidhara, Gyandeep Marg, opposite of himsudha Colony",
       },
       {
@@ -142,7 +146,7 @@ const NormalBooking = () => {
         title: "Cooking",
         price: "Rs. 1000",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Lainchaur",
       },
       {
@@ -150,7 +154,7 @@ const NormalBooking = () => {
         title: "AC Repair",
         price: "Rs. 2000",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Nakhipot",
       },
       {
@@ -158,7 +162,7 @@ const NormalBooking = () => {
         title: "Carpenter Service",
         price: "Rs. 1500",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Dolahity",
       },
       {
@@ -166,7 +170,7 @@ const NormalBooking = () => {
         title: "Labor Job",
         price: "Rs. 650",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Rastrapati Bhawan",
       },
     ],
@@ -176,7 +180,7 @@ const NormalBooking = () => {
         title: "Chinese Socket Repair",
         price: "Rs. 500",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Baghbazaar",
       },
       {
@@ -184,7 +188,7 @@ const NormalBooking = () => {
         title: "House Cleaner",
         price: "Rs. 750",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Near Gairidhara, Gyandeep Marg, opposite of himsudha Colony",
       },
       {
@@ -192,7 +196,7 @@ const NormalBooking = () => {
         title: "Cooking",
         price: "Rs. 1000",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Lainchaur",
       },
       {
@@ -200,15 +204,15 @@ const NormalBooking = () => {
         title: "AC Repair",
         price: "Rs. 2000",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Nakhipot",
       },
       {
         key: "5",
         title: "Carpenter Service",
-        price: "Rs. 1500",
+        price: "Rs. 15000",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Dolahity",
       },
       {
@@ -216,7 +220,7 @@ const NormalBooking = () => {
         title: "Labor Job",
         price: "Rs. 650",
         image: require("../../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../../assets/RequiredImages/Rating.png"),
+        rating: require("../../../assets/RequiredImages/Rating3.png"),
         location: "Rastrapati Bhawan",
       },
     ],
@@ -231,7 +235,8 @@ const NormalBooking = () => {
         style={{
           flex: 1,
           borderRadius: moderateScale(20),
-          backgroundColor: selectedBookingStatus === index ? "green" : "#ff1",
+          backgroundColor:
+            selectedBookingStatus === index ? "#ffffff" : "#CDCDCD",
           justifyContent: "center",
         }}
         onPress={() => setSelectedBookingStatus(index)}
@@ -268,7 +273,10 @@ const NormalBooking = () => {
   );
 
   return (
-    <SafeAreaView style={{ marginTop: statusBarHeight }}>
+    <SafeAreaView
+    //style={{ marginTop: statusBarHeight }}
+    >
+      <StatusBar />
       <ScrollView>
         <View
           style={[
@@ -295,13 +303,24 @@ const NormalBooking = () => {
           >
             My Bookings
           </Text>
+          <TouchableOpacity onPress={onProfilePicClicked}>
+            <Image
+              source={require("../../../assets/userImage.png")}
+              style={{
+                marginLeft: horizontalScale(69),
+                marginTop: moderateScale(5),
+                height: verticalScale(50),
+                width: verticalScale(50),
+              }}
+            />
+          </TouchableOpacity>
         </View>
         <View
           style={[
             {
               flex: 1,
               height: verticalScale(30),
-              backgroundColor: "#ff1",
+              backgroundColor: "#CDCDCD",
               flexDirection: "row",
               width: "auto",
               alignItems: "center",
@@ -311,7 +330,11 @@ const NormalBooking = () => {
         >
           {bookingStatusEl}
         </View>
-        <View style={[{ flex: 1, marginTop: verticalScale(10) }]}>
+        <View
+          style={[
+            { flex: 1, marginTop: verticalScale(10), alignItems: "center" },
+          ]}
+        >
           <FlatList
             data={bookingStatusData[selectedBookingStatus]}
             renderItem={render_Flatlist_MyBookings_Consumer}

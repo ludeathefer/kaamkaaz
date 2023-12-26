@@ -25,48 +25,58 @@ const MyBookings_Provider = () => {
         key: "1",
         title: "Pectrical Socket Repair",
         price: "Rs. 500",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
         location: "Baghbazaar",
+        date: "2080/09/14",
       },
       {
         key: "2",
         title: "House Cleaner",
         price: "Rs. 750",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
         location: "Near Gairidhara, Gyandeep Marg, opposite of himsudha Colony",
+        date: "2080/09/14",
       },
       {
         key: "3",
         title: "Cooking",
         price: "Rs. 1000",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
+        date: "2080/09/14",
+
         location: "Lainchaur",
       },
       {
         key: "4",
         title: "AC Repair",
         price: "Rs. 2000",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
+        date: "2080/09/14",
+
         location: "Nakhipot",
       },
       {
         key: "5",
         title: "Carpenter Service",
         price: "Rs. 1500",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        date: "2080/09/14",
+
+        rating: require("../../../assets/RequiredImages/Rating.png"),
         location: "Dolahity",
       },
       {
         key: "6",
         title: "Labor Job",
         price: "Rs. 650",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        date: "2080/09/14",
+
+        rating: require("../../../assets/RequiredImages/Rating.png"),
         location: "Rastrapati Bhawan",
       },
     ],
@@ -75,49 +85,61 @@ const MyBookings_Provider = () => {
       {
         key: "1",
         title: "Coomer Socket Repair",
+        date: "2080/09/14",
+
         price: "Rs. 500",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
         location: "Baghbazaar",
       },
       {
         key: "2",
         title: "House Cleaner",
         price: "Rs. 750",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
+        date: "2080/09/14",
+
         location: "Near Gairidhara, Gyandeep Marg, opposite of himsudha Colony",
       },
       {
         key: "3",
         title: "Cooking",
         price: "Rs. 1000",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
+        date: "2080/09/14",
+
         location: "Lainchaur",
       },
       {
         key: "4",
         title: "AC Repair",
         price: "Rs. 2000",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
+        date: "2080/09/14",
+
         location: "Nakhipot",
       },
       {
         key: "5",
         title: "Carpenter Service",
         price: "Rs. 1500",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        date: "2080/09/14",
+
+        rating: require("../../../assets/RequiredImages/Rating.png"),
         location: "Dolahity",
       },
       {
         key: "6",
         title: "Labor Job",
         price: "Rs. 650",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        date: "2080/09/14",
+
+        rating: require("../../../assets/RequiredImages/Rating.png"),
         location: "Rastrapati Bhawan",
       },
     ],
@@ -126,48 +148,60 @@ const MyBookings_Provider = () => {
         key: "1",
         title: "Chinese Socket Repair",
         price: "Rs. 500",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        date: "2080/09/14",
+
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
         location: "Baghbazaar",
       },
       {
         key: "2",
         title: "House Cleaner",
         price: "Rs. 750",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
+        date: "2080/09/14",
+
         location: "Near Gairidhara, Gyandeep Marg, opposite of himsudha Colony",
       },
       {
         key: "3",
         title: "Cooking",
         price: "Rs. 1000",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
+        date: "2080/09/14",
+
         location: "Lainchaur",
       },
       {
         key: "4",
         title: "AC Repair",
         price: "Rs. 2000",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        date: "2080/09/14",
+
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
         location: "Nakhipot",
       },
       {
         key: "5",
         title: "Carpenter Service",
         price: "Rs. 1500",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        rating: require("../../../assets/RequiredImages/Rating.png"),
+        date: "2080/09/14",
+
         location: "Dolahity",
       },
       {
         key: "6",
         title: "Labor Job",
         price: "Rs. 650",
-        image: require("../../assets/RequiredImages/Placeholder.png"),
-        rating: require("../../assets/RequiredImages/Rating.png"),
+        image: require("../../../assets/RequiredImages/Placeholder.png"),
+        date: "2080/09/14",
+
+        rating: require("../../../assets/RequiredImages/Rating.png"),
         location: "Rastrapati Bhawan",
       },
     ],
@@ -182,7 +216,7 @@ const MyBookings_Provider = () => {
             flex: 1,
             borderRadius: moderateScale(20),
             backgroundColor:
-              selectedBookingStatusProvider === index ? "green" : "#ff1",
+              selectedBookingStatusProvider === index ? "#ffffff" : "#CDCDCD",
             justifyContent: "center",
           }}
           onPress={() => setSelectedBookingStatusProvider(index)}
@@ -213,10 +247,7 @@ const MyBookings_Provider = () => {
           <Text style={Styles.Price_Flatlist_MyBookings_Consumer}>
             {item.price}
           </Text>
-          <Image
-            source={item.rating}
-            style={Styles.Rating_FlatList_MyBookings_Consumer}
-          />
+          <Text style={{ fontWeight: "600" }}>{item.date}</Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -232,14 +263,14 @@ const MyBookings_Provider = () => {
               flexDirection: "row",
               height: verticalScale(50),
               width: horizontalScale(350),
-              marginTop: verticalScale(10),
+              marginTop: verticalScale(25),
               alignItems: "center",
             },
           ]}
         >
           <TouchableOpacity onPress={backBookingHandler_Consumer}>
             <Image
-              source={require("../../assets/Icons/back.png")}
+              source={require("../../../assets/Icons/back.png")}
               style={Styles.BackIcon_MyBookings_Consumer}
             />
           </TouchableOpacity>
@@ -256,7 +287,7 @@ const MyBookings_Provider = () => {
             {
               flex: 1,
               height: verticalScale(30),
-              backgroundColor: "#ff1",
+              backgroundColor: "#CDCDCD",
               flexDirection: "row",
               width: "auto",
               alignItems: "center",
@@ -266,7 +297,11 @@ const MyBookings_Provider = () => {
         >
           {BookingStatusProvider}
         </View>
-        <View style={[{ flex: 1, marginTop: verticalScale(10) }]}>
+        <View
+          style={[
+            { flex: 1, marginTop: verticalScale(10), alignItems: "center" },
+          ]}
+        >
           <FlatList
             data={bookingStatusDataProvider[selectedBookingStatusProvider]}
             renderItem={render_Flatlist_MyBookings_Provider}
