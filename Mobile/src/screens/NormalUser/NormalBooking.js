@@ -13,7 +13,7 @@ import {
   moderateScale,
   verticalScale,
 } from "../../constants/measurements";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const NormalBooking = () => {
   const [selectedBookingStatus, setSelectedBookingStatus] = useState(0);

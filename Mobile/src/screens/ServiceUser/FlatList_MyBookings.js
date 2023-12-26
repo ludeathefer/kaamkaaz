@@ -1,5 +1,5 @@
 import { FlatList, View, Image, Text, TouchableOpacity } from "react-native";
-import Styles from "../StyleHolder";
+import Styles from "../../StyleHolder";
 
 const FlatList_MyBookings_Consumer = () => {
   const MyBookings_Consumer_data = [
