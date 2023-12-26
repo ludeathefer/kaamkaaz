@@ -63,11 +63,27 @@ const Styles = StyleSheet.create({
     width: verticalScale(40),
     tintColor: "#111111",
   },
+  BottomTabBar:{
+    position: 'absolute',
+    bottom: verticalScale(0),
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.9,
+    shadowRadius: 3,
+    elevation: 6,
+    backgroundColor: '#ffffff',
+    borderBottomEndRadius: 0,
+    borderTopEndRadius: moderateScale(22),
+    borderTopWidth: 0,
+    height: verticalScale(65),
+  },
   Map_View: {
     flex: 1,
     height: screenHeight,
     width: screenWidth,
   },
+
+  
 });
+
 
 export default Styles;

@@ -14,6 +14,8 @@ import {
   verticalScale,
 } from "../../constants/measurements";
 import React, { useState } from "react";
+import { StatusBar } from "expo-status-bar";
+const statusBarHeight = StatusBar.currentHeight || 0;
 
 const NormalBooking = () => {
   const [selectedBookingStatus, setSelectedBookingStatus] = useState(0);
@@ -267,7 +269,8 @@ const NormalBooking = () => {
   );
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ marginTop: statusBarHeight }}>
+      <StatusBar/>      
       <ScrollView>
         <View
           style={[

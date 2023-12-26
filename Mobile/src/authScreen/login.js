@@ -13,6 +13,7 @@ import {
   moderateScale,
 } from "../constants/measurements";
 import { login } from "../apiCalls";
+import { KeyboardAwareScrollView } from 'react-native-ui-lib'
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("mukundadeva440@gmail.com");
@@ -24,42 +25,17 @@ const LoginScreen = ({ navigation }) => {
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: "column",
-        backgroundColor: "#fff",
-        justifyContent: "flex-start",
-      }}
-    >
-      <Image
-        source={require("../../assets/logo.png")}
-        style={{
-          height: verticalScale(60),
-          resizeMode: "contain",
-          alignSelf: "center",
-          marginTop: verticalScale(60),
-        }}
-      />
-      <Image
-        source={require("../../assets/illustration.png")}
-        style={{
-          height: verticalScale(200),
-          resizeMode: "contain",
-          alignSelf: "center",
-        }}
-      />
-      <Text
-        style={{
-          fontFamily: "Inter-Bold",
-          fontSize: moderateScale(26),
-          alignSelf: "flex-start",
-          marginLeft: horizontalScale(30),
-          marginVertical: verticalScale(10),
-        }}
-      >
-        Hello Again
-      </Text>
+    <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#fff', justifyContent: 'flex-start', }}>
+      <KeyboardAwareScrollView>
+      <Image source={require('../../assets/logo.png')} style={{ height: verticalScale(60), resizeMode: 'contain', alignSelf: 'center', marginTop: verticalScale(60), }} />
+      <Image source={require('../../assets/illustration.png')} style={{ height: verticalScale(200), resizeMode: 'contain', alignSelf: 'center' }} />
+      <Text style={{
+        fontFamily: 'Inter-Bold',
+        fontSize: moderateScale(26),
+        alignSelf: 'flex-start',
+        marginLeft: horizontalScale(30),
+        marginVertical: verticalScale(10),
+      }}>Hello Again</Text>
 
       <Text
         style={{
@@ -149,6 +125,7 @@ const LoginScreen = ({ navigation }) => {
           </Text>
         </View>
       </TouchableOpacity>
+      </KeyboardAwareScrollView>
     </View>
   );
 };
