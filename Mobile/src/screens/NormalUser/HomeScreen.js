@@ -19,35 +19,35 @@ import { getUser } from "../../apiCalls";
 const windowWidth = Dimensions.get("window").width;
 const categoryArray = [
   {
-    title: "Electrician",
+    category: "Electrician",
     image: require("../../../assets/categoryimages/electrician.png"),
   },
   {
-    title: "Barber",
+    category: "Barber",
     image: require("../../../assets/categoryimages/barber.png"),
   },
   {
-    title: "Cleaning",
+    category: "Cleaning",
     image: require("../../../assets/categoryimages/cleaning.webp"),
   },
   {
-    title: "Plumber",
+    category: "Plumber",
     image: require("../../../assets/categoryimages/plumber.png"),
   },
   {
-    title: "Carpenter",
+    category: "Carpenter",
     image: require("../../../assets/categoryimages/carpenter.png"),
   },
   {
-    title: "Labourer",
+    category: "Labourer",
     image: require("../../../assets/categoryimages/labourer.png"),
   },
   {
-    title: "Painter",
+    category: "Painter",
     image: require("../../../assets/categoryimages/painter.png"),
   },
   {
-    title: "Cooking",
+    category: "Catering",
     image: require("../../../assets/categoryimages/cooking.png"),
   },
 ];
@@ -69,7 +69,7 @@ const HomeScreen = ({ navigation }) => {
     return (
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("ServiceDetail");
+          navigation.navigate("ServiceDetail",{category:item.category});
         }}
       >
         <View
@@ -99,7 +99,7 @@ const HomeScreen = ({ navigation }) => {
               marginTop: verticalScale(20),
             }}
           >
-            {item.title}
+            {item.category}
           </Text>
         </View>
       </TouchableOpacity>

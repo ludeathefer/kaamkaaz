@@ -48,7 +48,7 @@ const LocationPicker = ({ navigation }) => {
         position: "relative",
       }}
     >
-      <TouchableOpacity
+     {confirmed&& <TouchableOpacity
         style={{
           position: "absolute",
           marginTop: verticalScale(50),
@@ -69,7 +69,7 @@ const LocationPicker = ({ navigation }) => {
           tintColor="white"
         />
       </TouchableOpacity>
-
+}
       <MapView
         style={styles.Map_View}
         initialRegion={{
@@ -81,7 +81,7 @@ const LocationPicker = ({ navigation }) => {
       >
         <Marker
           draggable
-          coordinate={{
+          coordinate={location||{
             latitude: 27.700769,
             longitude: 85.30014,
             latitudeDelta: 0.0922,

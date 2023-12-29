@@ -1,6 +1,6 @@
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-const baseUrl = "http://172.16.20.233:2127";
+const baseUrl = "http://10.0.2.2:2127";
 
 const returnConfig = async () => {
   const token = await getToken();
@@ -93,24 +93,25 @@ const register = async ({ username, email, password, isServiceProvider }) => {
 };
 
 const createRequest = async ({ desc, location, date, selectedServices }) => {
-  try {
+
     const config = await returnConfig();
     const user = await getUser();
-    console.log(config);
+    
     const res = await axios.post(
       `${baseUrl}/request`,
       { desc, location, date, selectedServices, user, createdBy:user.userID },
       config
     );
     console.log(
-      `${baseUrl}/request`,
-      { desc, location, date, selectedServices, user },
-      config
+      
+      res
+     
     );
-    if (res.data.id) return res.data;
-  } catch (e) {
-    console.error(e);
-  }
+   console.log(res)
+   return res.data;
+  // } catch (e) {
+  //   console.error(e);
+  // }
 };
 
-export { login, register, getUser, createRequest };
+export { login, register, getUser, createRequest , deleteToken};

@@ -6,21 +6,30 @@ import {
   Image,
   View,
   ScrollView,
+  TouchableOpacity
 } from "react-native";
 import {
   horizontalScale,
   moderateScale,
   verticalScale,
 } from "../../constants/measurements";
+import { deleteToken } from "../../apiCalls";
+
+const handleLogout = async (navigation) => {
+  await deleteToken();
+  navigation.navigate("loginSelection");
+};
+
 const statusBarHeight = StatusBar.currentHeight || 0;
 
-const ProfileService = () => {
+const ProfileService = ({navigation}) => {
   return (
     <SafeAreaView
       style={{
         marginTop: verticalScale(10),
         flexDirection: "column",
         // alignItems: "center",
+        marginBottom : verticalScale(60)
       }}
     >
       <StatusBar
@@ -199,8 +208,37 @@ const ProfileService = () => {
         </Text>
         <Image
           source={require("../../../assets/RequiredImages/Certification.png")}
-          style={{ alignSelf: "center", marginBottom: verticalScale(40) }}
+          style={{ alignSelf: "center", marginBottom: verticalScale(10) }}
         />
+        <TouchableOpacity
+
+          onPress={() => {
+            handleLogout(navigation);
+          }}
+        >
+          <View
+            style={{
+              width: horizontalScale(300),
+              height: verticalScale(55),
+              backgroundColor: "#153963",
+              justifyContent: "center",
+              borderRadius: moderateScale(15),
+              marginVertical: 15,
+              alignSelf: "center",
+            }}
+          >
+            <Text
+              style={{
+                alignSelf: "center",
+                fontSize: moderateScale(14),
+                fontFamily: "Inter-Bold",
+                color: "#fff",
+              }}
+            >
+              Logout
+            </Text>
+          </View>
+        </TouchableOpacity>
       </ScrollView>
       {/* <StatusBar color:"red" /> */}
     </SafeAreaView>

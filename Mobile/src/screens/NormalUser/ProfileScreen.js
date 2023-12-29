@@ -13,9 +13,17 @@ import {
   moderateScale,
   verticalScale,
 } from "../../constants/measurements";
+import { deleteToken } from "../../apiCalls";
 const statusBarHeight = StatusBar.currentHeight || 0;
 
-const ProfileScreen = () => {
+const handleLogout=async(navigation)=>{
+  await deleteToken();
+  navigation.navigate("loginSelection")
+  
+  
+}
+
+const ProfileScreen = ({navigation}) => {
   return (
     <SafeAreaView
       style={{
@@ -91,7 +99,7 @@ const ProfileScreen = () => {
 
         <TouchableOpacity
           onPress={() => {
-            handleLogin();
+            handleLogout(navigation);
           }}
         >
           <View

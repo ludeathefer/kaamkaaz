@@ -16,12 +16,14 @@ import { login } from "../apiCalls";
 import { KeyboardAwareScrollView } from "react-native-ui-lib";
 
 const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState("praharsha101@gmail.com");
-  const [password, setPassword] = useState("praharshapraharsha");
+  const [email, setEmail] = useState("mukundadeva440@gmail.com");
+  const [password, setPassword] = useState("mukundamukunda");
 
   const handleLogin = async () => {
     const res = await login({ email, password });
-    if (res) navigation.navigate("Home");
+    console.log(res)
+    if (!res.type==='normal') navigation.navigate("Home")
+    else navigation.navigate('Provider');
   };
 
   return (

@@ -33,7 +33,7 @@ const AuthStack = ({ navigation, route }) => {
         component={Bottomtabnagivator}
         options={{ headerShown: false }}
       />
-      {/* <AuthStackBar.Screen name="Home" component={ServiceProviderNavBar} options={{headerShown:  false}} />  */}
+      <AuthStackBar.Screen name="Provider" component={ServiceProviderNavBar} options={{headerShown:  false}} /> 
       {/* <AuthStackBar.Screen name="Home" component={admintabnavigator} options={{headerShown:  false}} />   */}
     </AuthStackBar.Navigator>
   );

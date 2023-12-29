@@ -8,7 +8,7 @@ import {
   StyleSheet,
   TextInput,
 } from "react-native";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   horizontalScale,
   moderateScale,
@@ -18,13 +18,63 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import { LocationContext } from "../../hooks/context";
 import { createRequest } from "../../apiCalls";
 
-const data = [
+const subDetails = {
+  Electrician:[
   { name: "Power Socket Repair", id: "1" },
   { name: "Inverter Repair", id: "2" },
   { name: "Heater Repair", id: "3" },
   { name: "Lighting Repair", id: "4" },
   { name: "MCB Replacement", id: "5" },
-];
+],
+  Barber:[
+  { name: "Hair Trimming", id: "1" },
+  
+  { name: "Fancying (dyeing, curling)", id: "2" },
+ 
+],
+  Cleaning:[
+  { name: "Entire House", id: "1" },
+  { name: "Kitchen", id: "2" },
+  { name: "Room", id: "3" },
+  { name: "Lighting Repair", id: "4" },
+  { name: "MCB Replacement", id: "5" },
+],
+  Plumber:[
+  { name: "Kitchen Sink Installation", id: "1" },
+  { name: "Bathroom plumbing", id: "2" },
+  { name: "Sink Repair", id: "3" },
+  { name: "Lighting Repair", id: "4" },
+  { name: "MCB Replacement", id: "5" },
+],
+  Carpenter:[
+  { name: "Fix old furniture", id: "1" },
+  { name: "Door", id: "2" },
+  { name: "Windows", id: "3" },
+  { name: "Chairs, tables", id: "4" },
+  { name: "Bed", id: "5" },
+],
+  Labourer:[
+  { name: "Plaster", id: "1" },
+  { name: "Carry stuff", id: "2" },
+  { name: "Heater Repair", id: "3" },
+  { name: "Lighting Repair", id: "4" },
+  { name: "MCB Replacement", id: "5" },
+],
+  Painter:[
+  { name: "Entire House", id: "1" },
+  { name: "Interior only", id: "2" },
+  { name: "Exterior only", id: "3" },
+  { name: "Lighting Repair", id: "4" },
+  { name: "MCB Replacement", id: "5" },
+],
+  Catering:[
+  { name: "Small party", id: "1" },
+  { name: "Bigger party", id: "2" },
+  { name: "Puja", id: "3" },
+  { name: "Lighting Repair", id: "4" },
+  { name: "MCB Replacement", id: "5" },
+]
+};
 
 const ListItem = ({ item, selected, onPress, onLongPress }) => (
   <>
@@ -41,20 +91,23 @@ const ListItem = ({ item, selected, onPress, onLongPress }) => (
   </>
 );
 
-const ServiceDetail = ({ navigation }) => {
+const ServiceDetail = ({ navigation , route}) => {
   const [date, setDate] = useState(new Date());
   const [showPicker, setShowPicker] = useState(false);
   const [description, setDescription] = useState("");
   const [location, setLocation] = useContext(LocationContext);
   const [services, setServices] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
+  const {category} = route.params
+ 
+  const data= subDetails[category]
   const handleOnPress = (contact) => {
     if (selectedItems.length) {
       return selectItems(contact);
     }
     console.log("pressed");
   };
-
+  
   const getSelected = (contact) => selectedItems.includes(contact.id);
 
   const deSelectItems = () => setSelectedItems([]);
@@ -94,7 +147,7 @@ const ServiceDetail = ({ navigation }) => {
           fontSize: moderateScale(32),
         }}
       >
-        Electrician
+        {category}
       </Text>
       <TouchableOpacity
         style={{
@@ -270,6 +323,7 @@ const ServiceDetail = ({ navigation }) => {
             location,
             date,
             selectedServices: services,
+            category
           });
           console.log(res);
           if (res) navigation.navigate("Cart");
