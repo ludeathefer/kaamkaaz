@@ -8,12 +8,6 @@ import {
   horizontalScale,
 } from "../constants/measurements";
 import { KeyboardAwareScrollView } from "react-native-ui-lib";
-
-import {
-  verticalScale,
-  moderateScale,
-  horizontalScale,
-} from "../constants/measurements";
 import { register } from "../apiCalls";
 
 const RegisterScreen = ({ navigation }) => {

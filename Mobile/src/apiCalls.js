@@ -2,6 +2,15 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 const baseUrl = "http://172.16.20.233:2127";
 
+const returnConfig = async () => {
+  const token = await getToken();
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+  return { headers };
+};
+
 const saveToken = async (token) => {
   try {
     await AsyncStorage.setItem("jwt", token);
@@ -53,8 +62,6 @@ const login = async ({ email, password }) => {
       email,
       password,
     });
-    console.log(res.data);
-
     if (res.data.token) {
       await saveToken(res.data.token);
       await saveUser(res.data);
@@ -67,7 +74,6 @@ const login = async ({ email, password }) => {
 
 const register = async ({ username, email, password, isServiceProvider }) => {
   try {
-    console.log(username, email, password, isServiceProvider);
     const res = await axios.post(`${baseUrl}/auth/register`, {
       name: username,
       email,
@@ -80,10 +86,31 @@ const register = async ({ username, email, password, isServiceProvider }) => {
       await saveUser(res.data);
       return res.data;
     }
-    throw new Error("error");
+    throw new Error("Can't Register");
   } catch (e) {
     console.error(e);
   }
 };
 
-export { login, register };
+const createRequest = async ({ desc, location, date, selectedServices }) => {
+  try {
+    const config = await returnConfig();
+    const user = await getUser();
+    console.log(config);
+    const res = await axios.post(
+      `${baseUrl}/request`,
+      { desc, location, date, selectedServices, user, createdBy:user.userID },
+      config
+    );
+    console.log(
+      `${baseUrl}/request`,
+      { desc, location, date, selectedServices, user },
+      config
+    );
+    if (res.data.id) return res.data;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export { login, register, getUser, createRequest };

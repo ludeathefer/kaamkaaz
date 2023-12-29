@@ -6,6 +6,7 @@ const authenticate = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith("Bearer")) {
+    console.log("Here!");
     next(new UnauthenticatedError("Missing JWT"));
     return;
   }
@@ -13,7 +14,6 @@ const authenticate = async (req, res, next) => {
   const token = authHeader.split(" ")[1];
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
     const { userID, name } = decoded;
     req.user = { userID, name };
     next();

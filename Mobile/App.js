@@ -1,5 +1,6 @@
 import Styles from "./src/StyleHolder";
 // import MyBookings from "./src/screens/MyBookings";
+import { LogBox } from "react-native";
 import React, { useState } from "react";
 import AppLoading from "expo-app-loading";
 import { NavigationContainer } from "@react-navigation/native";
@@ -16,6 +17,7 @@ export default function App() {
   const LoadFonts = async () => {
     await useFonts();
   };
+  LogBox.ignoreAllLogs();
 
   if (!IsReady) {
     return (

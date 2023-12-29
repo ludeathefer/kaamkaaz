@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const RequestSchema = new mongoose.Schema({
   title: {
@@ -15,10 +15,6 @@ const RequestSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  pay: {
-    type: Number,
-    required: false,
-  },
   image: {
     type: String,
     required: false,
@@ -33,11 +29,18 @@ const RequestSchema = new mongoose.Schema({
   },
   acceptedBy: {
     type: String,
-    required: false
+    required: false,
   },
-  location:{
-    type:Object
-  }
+  location: {
+    type: Object,
+    required: false,
+  },
+  selectedServices: {
+    type: [String],
+  },
+  dueDate: {
+    type: String,
+  },
 });
 
-module.exports = mongoose.model('Request', RequestSchema)
+module.exports = mongoose.model("Request", RequestSchema);
