@@ -28,20 +28,15 @@ const createRequest = async (req, res, next) => {
   const user = await ServiceUser.findById(req.body.user.userID);
   console.log(req.body);
   if (user) {
-    const { desc, location, date, selectedServices } = req.body;
-    const newRequest = await Request.create({
-      desc,
-      createdBy: user._id,
-      pay,
-      location,
-      selectedServices,
-    });
+    console.log("entered here")
+    const newRequest = await Request.create(req.body);
+  
     res.status(200).json({
       msg: "request Created",
       id: newRequest._id,
     });
   } else {
-    res.status(404).json({ msg: "not found" });
+    res.status(404).json({ msg: "user not found" });
   }
 };
 

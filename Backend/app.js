@@ -19,8 +19,8 @@ app.use(express.json());
 // app.use(cors())
 app.use("/", authRouter);
 //login or register, doesn't require authentication
-app.use("/", verifyAdmin, adminRouter);
 // app.use("/", authenticate, requestRouter, userRouter, providerRouter);
+// app.use("/", verifyAdmin, adminRouter);
 app.use("/",authenticate,  requestRouter, userRouter, providerRouter);
 
 app.use(errorHandler);

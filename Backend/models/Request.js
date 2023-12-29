@@ -1,12 +1,6 @@
 const mongoose = require("mongoose");
 
 const RequestSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: [true, "Title is required"],
-    minlength: 5,
-    maxlength: 40,
-  },
   desc: {
     type: String,
     required: [true, "Description required"],
@@ -14,6 +8,9 @@ const RequestSchema = new mongoose.Schema({
   createdBy: {
     type: String,
     required: true,
+  },
+  category:{
+    type: String,
   },
   image: {
     type: String,
