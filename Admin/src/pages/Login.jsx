@@ -15,8 +15,14 @@ const Login = () => {
   // }, [Auth]);
 
   const handleLogin = async () => {
-    const res = await adminLogin(Secret);
-    console.log(res);
+    let res = await adminLogin(Secret);
+    console.log(res)
+    if(res){
+
+      if (res.data.msg==='success'){
+        localStorage.setItem("secret", Secret)
+        navigate('/')}
+      }
   };
 
   return (
@@ -39,6 +45,7 @@ const Login = () => {
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"
+          onSubmit={handleLogin}
         >
           Sign In
         </button>

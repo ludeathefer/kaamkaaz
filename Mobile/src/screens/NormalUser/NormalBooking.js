@@ -264,10 +264,10 @@ const NormalBooking = () => {
           <Text style={Styles.Price_Flatlist_MyBookings_Consumer}>
             {item.price}
           </Text>
-          <Image
+          {/* <Image
             source={item.rating}
             style={Styles.Rating_FlatList_MyBookings_Consumer}
-          />
+          /> */}
         </View>
       </TouchableOpacity>
     </View>

@@ -22,7 +22,7 @@ const LoginScreen = ({ navigation }) => {
   const handleLogin = async () => {
     const res = await login({ email, password });
     console.log(res)
-    if (!res.type==='normal') navigation.navigate("Home")
+    if (res.type==='normal') navigation.navigate("Home")
     else navigation.navigate('Provider');
   };
 

@@ -16,11 +16,13 @@ const adminRouter = require("./routes/admin");
 const { login } = require("./routes/admin");
 
 app.use(express.json());
-// app.use(cors())
+app.use(cors({
+  origin:"*"
+}))
 app.use("/", authRouter);
 //login or register, doesn't require authentication
 // app.use("/", authenticate, requestRouter, userRouter, providerRouter);
-// app.use("/", verifyAdmin, adminRouter);
+app.use("/",  adminRouter);
 app.use("/",authenticate,  requestRouter, userRouter, providerRouter);
 
 app.use(errorHandler);

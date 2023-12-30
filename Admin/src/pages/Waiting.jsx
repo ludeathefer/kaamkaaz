@@ -1,11 +1,13 @@
+import { useEffect, useState } from "react";
+import {fetchUsers} from "../api"
 const Waiting = () => {
-  const waitingArray = [
-    {
-      name: "John Doe",
-      service: "Plumbeing",
-      documents: "CTEVT Plumbing Certification"
-    }
-  ];
+  const [serviceUser, setServiceUser] = useState([])
+  useEffect(()=>{
+    const secret= localStorage.getItem('secret');
+    fetchUsers(secret)
+  }, [])
+
+
   const waitingTableBody = waitingArray.map((item, index) => {
     return (
       <tr key={index}>

@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import { AdminContext } from "../hooks/context";
+import axios from 'axios'
 
 const Home = () => {
   const [Auth, setAuth] = useContext(AdminContext).auth;
@@ -12,9 +13,11 @@ const Home = () => {
   //   else navigate("/");
   // }, [Auth]);
 
-  const logOut = ()=> {
-
-  };
+  const logOut = async ()=> {
+    navigate("/login")
+    // const res = await axios.get("http://localhost:2127/hello")
+    // console.log(res)
+  };  
 
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center">
